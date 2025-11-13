@@ -1,0 +1,6 @@
+@Hospital_Patient_Intake_Scheduling_API_604._23E_HostAddress = http://localhost:5101
+
+GET {{Hospital_Patient_Intake_Scheduling_API_604._23E_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
