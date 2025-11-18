@@ -2,10 +2,8 @@
 
 namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Models
 {
-    public class Doctor
+    public class Doctor : User
     {
-        public int Id { get; set; }
-
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
@@ -22,7 +20,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Models
 
         public bool IsActive { get; set; } = true;
 
+        // Navigation Properties
         public ICollection<Appointment> Appointments { get; set; }
-        public ICollection<DoctorAvailability> Availabilities { get; set; }
     }
 }

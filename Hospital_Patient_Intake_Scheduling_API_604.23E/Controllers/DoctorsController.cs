@@ -9,7 +9,8 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    // Allow Admins and Receptionists to view/manage doctors
+    [Authorize(Roles = "Admin,Receptionist")]
     public class DoctorsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -19,10 +20,11 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             _context = context;
         }
 
+        // GET: /api/doctors
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DoctorDto>>> GetDoctors()
         {
-            var doctors = await _context.Doctors
+            var doctors = await _context.Set<Doctor>() // Use Set<Doctor>() for clarity with TPH
                 .Where(d => d.IsActive)
                 .Select(d => new DoctorDto
                 {
@@ -38,10 +40,11 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             return Ok(doctors);
         }
 
+        // GET: /api/doctors/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<DoctorDto>> GetDoctor(int id)
         {
-            var doctor = await _context.Doctors
+            var doctor = await _context.Set<Doctor>()
                 .Where(d => d.Id == id && d.IsActive)
                 .Select(d => new DoctorDto
                 {
@@ -59,20 +62,37 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             return doctor;
         }
 
+        // POST: /api/doctors
+        // Creation of a new Doctor (which is also a User) is restricted to Admin
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<DoctorDto>> CreateDoctor(CreateDoctorDto createDoctorDto)
+        public async Task<ActionResult<DoctorDto>> CreateDoctor(RegisterDoctorDto registerDoctorDto)
         {
+            // Input Validation: Check for existing username/email
+            if (await _context.Users.AnyAsync(u => u.Username == registerDoctorDto.Username))
+            {
+                return BadRequest("Username already exists.");
+            }
+            if (await _context.Set<Doctor>().AnyAsync(d => d.Email == registerDoctorDto.Email))
+            {
+                return BadRequest("Email already used by a doctor.");
+            }
+
+            // Create Doctor, initializing both base (User) and derived properties
             var doctor = new Doctor
             {
-                Name = createDoctorDto.Name,
-                Specialty = createDoctorDto.Specialty,
-                PhoneNumber = createDoctorDto.PhoneNumber,
-                Email = createDoctorDto.Email,
+                Username = registerDoctorDto.Username,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerDoctorDto.Password), // Hashing password
+                Role = "Doctor", // Assigning the specific Role
+
+                Name = registerDoctorDto.Name,
+                Specialty = registerDoctorDto.Specialty,
+                PhoneNumber = registerDoctorDto.PhoneNumber,
+                Email = registerDoctorDto.Email,
                 IsActive = true
             };
 
-            _context.Doctors.Add(doctor);
+            _context.Set<Doctor>().Add(doctor);
             await _context.SaveChangesAsync();
 
             var doctorDto = new DoctorDto
@@ -88,35 +108,50 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             return CreatedAtAction(nameof(GetDoctor), new { id = doctor.Id }, doctorDto);
         }
 
+        // PUT: /api/doctors/{id}
+        // Updating doctor details (excluding user login) is restricted to Admin
         [HttpPut("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateDoctor(int id, CreateDoctorDto updateDoctorDto)
+        public async Task<IActionResult> UpdateDoctor(int id, UpdateDoctorDto updateDoctorDto)
         {
-            var doctor = await _context.Doctors.FindAsync(id);
+            var doctor = await _context.Set<Doctor>().FindAsync(id);
             if (doctor == null) return NotFound();
+
+            // Check if email change creates a conflict
+            if (doctor.Email != updateDoctorDto.Email &&
+                await _context.Set<Doctor>().AnyAsync(d => d.Email == updateDoctorDto.Email))
+            {
+                return BadRequest("Email already used by another doctor.");
+            }
 
             doctor.Name = updateDoctorDto.Name;
             doctor.Specialty = updateDoctorDto.Specialty;
             doctor.PhoneNumber = updateDoctorDto.PhoneNumber;
             doctor.Email = updateDoctorDto.Email;
+            doctor.IsActive = updateDoctorDto.IsActive; // Allow Admin to change active status
 
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
+        // DELETE: /api/doctors/{id} (Soft Delete)
+        // Restricted to Admin
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteDoctor(int id)
         {
-            var doctor = await _context.Doctors.FindAsync(id);
+            var doctor = await _context.Set<Doctor>().FindAsync(id);
             if (doctor == null) return NotFound();
 
-            // Check if doctor has appointments
-            var hasAppointments = await _context.Appointments.AnyAsync(a => a.DoctorId == id && a.Status == "Scheduled");
-            if (hasAppointments)
-                return BadRequest("Cannot delete doctor with scheduled appointments");
+            // Check if doctor has future scheduled appointments
+            var hasScheduledAppointments = await _context.Appointments
+                .AnyAsync(a => a.DoctorId == id && a.Status == "Scheduled" && a.AppointmentDate >= DateTime.Today);
 
+            if (hasScheduledAppointments)
+                return BadRequest("Cannot deactivate doctor with future scheduled appointments.");
+
+            // Soft delete: set IsActive to false
             doctor.IsActive = false;
             await _context.SaveChangesAsync();
 

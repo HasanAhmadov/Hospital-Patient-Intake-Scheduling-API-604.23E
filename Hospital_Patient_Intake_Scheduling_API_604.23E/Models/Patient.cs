@@ -2,10 +2,8 @@
 
 namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Models
 {
-    public class Patient
+    public class Patient : User
     {
-        public int Id { get; set; }
-
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
@@ -29,6 +27,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
+        // Navigation Property
         public ICollection<Appointment> Appointments { get; set; }
     }
 }   

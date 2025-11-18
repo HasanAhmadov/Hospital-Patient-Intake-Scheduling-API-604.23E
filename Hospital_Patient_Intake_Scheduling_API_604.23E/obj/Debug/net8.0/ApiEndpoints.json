@@ -47,6 +47,32 @@
   },
   {
     "ContainingType": "Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers.AppointmentsController",
+    "Method": "GetAppointment",
+    "RelativePath": "api/Appointments/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Hospital_Patient_Intake_Scheduling_API_604._23E.DTOs.AppointmentDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers.AppointmentsController",
     "Method": "DeleteAppointment",
     "RelativePath": "api/Appointments/{id}",
     "HttpMethod": "DELETE",
@@ -183,8 +209,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createDoctorDto",
-        "Type": "Hospital_Patient_Intake_Scheduling_API_604._23E.DTOs.CreateDoctorDto",
+        "Name": "registerDoctorDto",
+        "Type": "Hospital_Patient_Intake_Scheduling_API_604._23E.DTOs.RegisterDoctorDto",
         "IsRequired": true
       }
     ],
@@ -241,7 +267,7 @@
       },
       {
         "Name": "updateDoctorDto",
-        "Type": "Hospital_Patient_Intake_Scheduling_API_604._23E.DTOs.CreateDoctorDto",
+        "Type": "Hospital_Patient_Intake_Scheduling_API_604._23E.DTOs.UpdateDoctorDto",
         "IsRequired": true
       }
     ],

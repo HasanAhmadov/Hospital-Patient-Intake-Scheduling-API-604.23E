@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251117180919_InitialCreate")]
+    [Migration("20251118125718_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -73,13 +73,62 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
                     b.ToTable("Appointments");
                 });
 
-            modelBuilder.Entity("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.Doctor", b =>
+            modelBuilder.Entity("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
+
+                    b.UseTphMappingStrategy();
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            PasswordHash = "$2a$11$k8NYn282Rgzb912lUFVBluNJX/X0lI4hckuZinj2NHjI4ZwKaDofK",
+                            Role = "Admin",
+                            Username = "admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            PasswordHash = "$2a$11$EFZiqoa7OOiJhStpVUHU4OQ81ZHfGYfCMlCIcBMdqJ5gyZ7lDQbJW",
+                            Role = "Receptionist",
+                            Username = "receptionist"
+                        });
+                });
+
+            modelBuilder.Entity("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.Doctor", b =>
+                {
+                    b.HasBaseType("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.User");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -104,77 +153,38 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Id");
+                    b.ToTable("Users", t =>
+                        {
+                            t.Property("Email")
+                                .HasColumnName("Doctor_Email");
 
-                    b.ToTable("Doctors");
+                            t.Property("Name")
+                                .HasColumnName("Doctor_Name");
+
+                            t.Property("PhoneNumber")
+                                .HasColumnName("Doctor_PhoneNumber");
+                        });
+
+                    b.HasDiscriminator().HasValue("Doctor");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Email = "nuran.taghiyev@xestexanam.az",
-                            IsActive = true,
-                            Name = "Dr. Nuran Tagiyev",
-                            PhoneNumber = "+9945555555555",
-                            Specialty = "General Medicine"
-                        },
-                        new
-                        {
-                            Id = 2,
+                            Id = 3,
+                            PasswordHash = "$2a$11$70MM3of9gJ2ZmfkWfP60TuQ23/UftvhvxPy4J1aZfQ5y5MtooBo9a",
+                            Role = "Doctor",
+                            Username = "hasan",
                             Email = "hasan.ahmadov@xestexanam.az",
                             IsActive = true,
                             Name = "Dr. Hasan Ahmadov",
                             PhoneNumber = "+994777777777",
                             Specialty = "Cardiology"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "sevinc.abbasova@xestexanam.az",
-                            IsActive = true,
-                            Name = "Dr. Sevinc Abbasova",
-                            PhoneNumber = "+994999999999",
-                            Specialty = "Pediatrics"
                         });
-                });
-
-            modelBuilder.Entity("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.DoctorAvailability", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("DayOfWeek")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DoctorId")
-                        .HasColumnType("int");
-
-                    b.Property<TimeSpan>("EndTime")
-                        .HasColumnType("time");
-
-                    b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit");
-
-                    b.Property<TimeSpan>("StartTime")
-                        .HasColumnType("time");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DoctorId");
-
-                    b.ToTable("DoctorAvailabilities");
                 });
 
             modelBuilder.Entity("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.Patient", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.HasBaseType("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.User");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -210,52 +220,23 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Patients");
-                });
-
-            modelBuilder.Entity("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
+                    b.HasDiscriminator().HasValue("Patient");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            PasswordHash = "$2a$11$KxhO.RMsEjw5zl0yI/7iTe.TeA6N6QjcWxkD3JNsHrrkbd.YvXJEq",
-                            Role = "Admin",
-                            Username = "admin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            PasswordHash = "$2a$11$Mk83aj80QyofmChXfSc/yuX.7sDDnvLMXSk0t5PY.0H5lF4foaPTW",
-                            Role = "Receptionist",
-                            Username = "reception"
+                            Id = 4,
+                            PasswordHash = "$2a$11$KcYqC6Oj8mtcL6QixHtCfeor60n/8FAPrOrGC.i8OEwVZztXXzwWC",
+                            Role = "Patient",
+                            Username = "sevinc",
+                            Address = "Ahmadli",
+                            Age = 19,
+                            CreatedAt = new DateTime(2025, 11, 18, 12, 57, 18, 116, DateTimeKind.Utc).AddTicks(1952),
+                            Email = "sevinc@gmail.com",
+                            Name = "Sevinc Abbasova",
+                            PhoneNumber = "+994555555555",
+                            Symptoms = "Headache, nausea, dizziness",
+                            UpdatedAt = new DateTime(2025, 11, 18, 12, 57, 18, 116, DateTimeKind.Utc).AddTicks(1956)
                         });
                 });
 
@@ -264,7 +245,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
                     b.HasOne("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.Doctor", "Doctor")
                         .WithMany("Appointments")
                         .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.Patient", "Patient")
@@ -278,22 +259,9 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
                     b.Navigation("Patient");
                 });
 
-            modelBuilder.Entity("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.DoctorAvailability", b =>
-                {
-                    b.HasOne("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.Doctor", "Doctor")
-                        .WithMany("Availabilities")
-                        .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Doctor");
-                });
-
             modelBuilder.Entity("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.Doctor", b =>
                 {
                     b.Navigation("Appointments");
-
-                    b.Navigation("Availabilities");
                 });
 
             modelBuilder.Entity("Hospital_Patient_Intake_Scheduling_API_604._23E.Models.Patient", b =>
