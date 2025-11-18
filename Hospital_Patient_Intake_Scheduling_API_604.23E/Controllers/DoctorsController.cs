@@ -10,7 +10,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
     [ApiController]
     [Route("api/[controller]")]
     // Allow Admins and Receptionists to view/manage doctors
-    [Authorize(Roles = "Admin,Receptionist")]
+    [Authorize(Roles = "Admin")]
     public class DoctorsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;

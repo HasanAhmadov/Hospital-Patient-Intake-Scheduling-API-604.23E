@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,24 +31,12 @@
       "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\dtos\\createappointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\dtos\\createappointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\dtos\\createpatientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\dtos\\createpatientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|solutionrelative:hospital_patient_intake_scheduling_api_604.23e\\controllers\\doctorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4B10FE9F-31A8-459A-BFF1-4CB2274D9732}|Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj|c:\\users\\hasan.ahmadov\\source\\repos\\hospital-patient-intake-scheduling-api-604.23e\\hospital_patient_intake_scheduling_api_604.23e\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -128,63 +128,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PatientsController.cs",
-              "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\PatientsController.cs",
-              "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\PatientsController.cs",
-              "ToolTip": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\PatientsController.cs",
-              "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\PatientsController.cs",
-              "ViewState": "AgIAAI4AAAAAAAAAAAAQwIMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:32:52.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppointmentsController.cs",
-              "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\AppointmentsController.cs",
-              "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\AppointmentsController.cs",
-              "ToolTip": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\AppointmentsController.cs",
-              "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\AppointmentsController.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAYwIkAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:35:31.407Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Data\\ApplicationDbContext.cs",
               "ToolTip": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAIwHcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAswHcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T17:19:29.3Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateAppointmentDto.cs",
-              "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreateAppointmentDto.cs",
-              "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreateAppointmentDto.cs",
-              "ToolTip": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreateAppointmentDto.cs",
-              "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreateAppointmentDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:18:17.556Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Doctor.cs",
               "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Models\\Doctor.cs",
               "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Models\\Doctor.cs",
@@ -192,12 +153,11 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Models\\Doctor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:12:45.939Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:12:45.939Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Patient.cs",
               "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Models\\Patient.cs",
               "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Models\\Patient.cs",
@@ -205,12 +165,11 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Models\\Patient.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwA4AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:12:01.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:12:01.28Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "UpdateDoctorDto.cs",
               "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\UpdateDoctorDto.cs",
               "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\UpdateDoctorDto.cs",
@@ -218,12 +177,62 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\UpdateDoctorDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:46:04.731Z",
+              "WhenOpened": "2025-11-18T11:46:04.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DoctorsController.cs",
+              "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\DoctorsController.cs",
+              "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\DoctorsController.cs",
+              "ToolTip": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\DoctorsController.cs",
+              "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\DoctorsController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwBEAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T17:34:07.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PatientsController.cs",
+              "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\PatientsController.cs",
+              "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\PatientsController.cs",
+              "ToolTip": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\PatientsController.cs",
+              "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\PatientsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T17:32:52.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\AppointmentsController.cs",
+              "ToolTip": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\AppointmentsController.cs",
+              "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\AppointmentsController.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAswIkAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T17:35:31.407Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "CreateAppointmentDto.cs",
+              "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreateAppointmentDto.cs",
+              "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreateAppointmentDto.cs",
+              "ToolTip": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreateAppointmentDto.cs",
+              "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreateAppointmentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T17:18:17.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "CreatePatientDto.cs",
               "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreatePatientDto.cs",
               "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreatePatientDto.cs",
@@ -231,21 +240,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreatePatientDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:15:22.576Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DoctorsController.cs",
-              "DocumentMoniker": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\DoctorsController.cs",
-              "RelativeDocumentMoniker": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\DoctorsController.cs",
-              "ToolTip": "C:\\Users\\hasan.ahmadov\\source\\repos\\Hospital-Patient-Intake-Scheduling-API-604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\DoctorsController.cs",
-              "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\DoctorsController.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAuwA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:34:07.462Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:15:22.576Z"
             },
             {
               "$type": "Document",
@@ -257,8 +252,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAUwBAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:36:23.264Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:36:23.264Z"
             },
             {
               "$type": "Document",
@@ -270,8 +264,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\CreateDoctorDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:16:05.489Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:16:05.489Z"
             },
             {
               "$type": "Document",
@@ -283,8 +276,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\RegisterDoctorDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:45:03.825Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T11:45:03.825Z"
             },
             {
               "$type": "Document",
@@ -296,8 +288,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Services\\AuthService.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAWwGEAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:30:18.552Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:30:18.552Z"
             },
             {
               "$type": "Document",
@@ -309,8 +300,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Interfaces\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:29:47.753Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:29:47.753Z"
             },
             {
               "$type": "Document",
@@ -322,8 +312,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\TimeSlotDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:17:57.731Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:17:57.731Z"
             },
             {
               "$type": "Document",
@@ -335,8 +324,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Models\\Appointment.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAmwCQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:13:11.466Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:13:11.466Z"
             },
             {
               "$type": "Document",
@@ -348,8 +336,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:14:12.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:14:12.746Z"
             },
             {
               "$type": "Document",
@@ -361,8 +348,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-17T17:41:55.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:41:55.108Z"
             },
             {
               "$type": "Document",
@@ -374,8 +360,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Program.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAAAFQAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T05:40:12.575Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T05:40:12.575Z"
             },
             {
               "$type": "Document",
@@ -387,8 +372,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Interfaces\\IAppointmentService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:31:42.205Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:31:42.205Z"
             },
             {
               "$type": "Document",
@@ -411,8 +395,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.csproj",
               "ViewState": "AgIAAAEAAAAAAAAAAABBwAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-17T17:38:07.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:38:07.15Z"
             },
             {
               "$type": "Document",
@@ -435,8 +418,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Services\\AppointmentService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:32:11.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:32:11.66Z"
             },
             {
               "$type": "Document",
@@ -448,8 +430,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\LoginDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:18:40.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:18:40.564Z"
             },
             {
               "$type": "Document",
@@ -461,8 +442,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\AppointmentDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:16:40.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:16:40.144Z"
             },
             {
               "$type": "Document",
@@ -474,8 +454,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\AuthResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:19:03.866Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:19:03.866Z"
             },
             {
               "$type": "Document",
@@ -487,8 +466,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\DoctorDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:15:42.05Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:15:42.05Z"
             },
             {
               "$type": "Document",
@@ -500,8 +478,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\DTOs\\PatientDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T17:14:53.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T17:14:53.422Z"
             },
             {
               "$type": "Document",
@@ -513,8 +490,7 @@
               "RelativeToolTip": "Hospital_Patient_Intake_Scheduling_API_604.23E\\Hospital_Patient_Intake_Scheduling_API_604.23E.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-11-13T12:38:30.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-13T12:38:30.291Z"
             }
           ]
         }
