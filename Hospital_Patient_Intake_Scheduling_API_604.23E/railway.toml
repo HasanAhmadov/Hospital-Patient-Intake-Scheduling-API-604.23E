@@ -2,7 +2,7 @@
 builder = "nixpacks"
 
 [build.buildCommand]
-dotnet = "dotnet publish -c Release -o output"
+dotnet = "dotnet publish Hospital_Patient_Intake_Scheduling_API_604.23E/Hospital_Patient_Intake_Scheduling_API_604.23E.csproj -c Release -o output"
 
 [build.startCommand]
-dotnet = "dotnet ./output/Hospital_Patient_Intake_Scheduling_API.dll"
+dotnet = "dotnet ./output/Hospital_Patient_Intake_Scheduling_API_604.23E.dll"
