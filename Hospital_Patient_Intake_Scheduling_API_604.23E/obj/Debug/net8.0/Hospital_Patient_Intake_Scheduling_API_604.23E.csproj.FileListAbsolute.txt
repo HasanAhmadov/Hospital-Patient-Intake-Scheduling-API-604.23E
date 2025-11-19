@@ -160,7 +160,6 @@ C:\Projects\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Inta
 C:\Projects\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\obj\Debug\net8.0\Hospital_Patient_Intake_Scheduling_API_604.23E.pdb
 C:\Projects\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\obj\Debug\net8.0\Hospital_Patient_Intake_Scheduling_API_604.23E.genruntimeconfig.cache
 C:\Projects\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\obj\Debug\net8.0\ref\Hospital_Patient_Intake_Scheduling_API_604.23E.dll
-C:\Projects\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\hasan.ahmadov\source\repos\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\hasan.ahmadov\source\repos\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\bin\Debug\net8.0\appsettings.json
 C:\Users\hasan.ahmadov\source\repos\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\bin\Debug\net8.0\Hospital_Patient_Intake_Scheduling_API_604.23E.staticwebassets.endpoints.json
@@ -328,3 +327,5 @@ C:\Users\hasan.ahmadov\source\repos\Hospital-Patient-Intake-Scheduling-API-604.2
 C:\Users\hasan.ahmadov\source\repos\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\obj\Debug\net8.0\Hospital_Patient_Intake_Scheduling_API_604.23E.genruntimeconfig.cache
 C:\Users\hasan.ahmadov\source\repos\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\obj\Debug\net8.0\ref\Hospital_Patient_Intake_Scheduling_API_604.23E.dll
 C:\Users\hasan.ahmadov\source\repos\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Projects\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\bin\Debug\net8.0\Npgsql.dll
+C:\Projects\Hospital-Patient-Intake-Scheduling-API-604.23E\Hospital_Patient_Intake_Scheduling_API_604.23E\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
