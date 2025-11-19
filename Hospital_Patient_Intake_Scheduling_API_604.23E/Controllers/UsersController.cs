@@ -165,6 +165,41 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             return NoContent();
         }
 
+        [HttpGet("session")]
+        public async Task<ActionResult<UserDto>> GetUserFromSession()
+        {
+            // Get the user's ID from the JWT claims
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "id" || c.Type == System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("User ID claim not found.");
+            }
+
+            if (!int.TryParse(userIdClaim.Value, out int userId))
+            {
+                return Unauthorized("Invalid user ID claim.");
+            }
+
+            // Retrieve the user from the database
+            var user = await _context.Users
+                .Where(u => u.Id == userId)
+                .Select(u => new UserDto
+                {
+                    Id = u.Id,
+
+                    Username = u.Username,
+                    Role = u.Role
+                })
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            return Ok(user);
+        }
+
         // Helper method to validate roles
         private static bool IsValidRole(string role)
         {
