@@ -38,32 +38,27 @@ builder.Services.AddSwaggerGen(c =>
         Description = "Enter: Bearer {your token}"
     });
 
-
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
-{
     {
-        new OpenApiSecurityScheme
         {
-            Reference = new OpenApiReference {
-                Type = ReferenceType.SecurityScheme,
-                Id = "Bearer"
-            }
-        },
-        new string[] {}
-    }
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
 });
 
-});
-
-// Configure Entity Framework with SQL Server
-/*builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));*/
-
+// Configure Entity Framework with PostgreSQL
 var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-// Configure JWT Authentication - FIXED VERSION
+// Configure JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -79,38 +74,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
 
-        // Detailed debugging
+        // Debug events to help with JWT issues
         options.Events = new JwtBearerEvents
         {
             OnAuthenticationFailed = context =>
             {
-                Console.WriteLine("=== JWT AUTHENTICATION FAILED ===");
-                Console.WriteLine($"Exception: {context.Exception}");
-                Console.WriteLine($"Exception Type: {context.Exception.GetType().Name}");
-                if (context.Exception is SecurityTokenExpiredException)
-                    Console.WriteLine("Token is expired");
-                else if (context.Exception is SecurityTokenInvalidIssuerException)
-                    Console.WriteLine("Token issuer is invalid");
-                else if (context.Exception is SecurityTokenInvalidAudienceException)
-                    Console.WriteLine("Token audience is invalid");
-                else if (context.Exception is SecurityTokenInvalidSignatureException)
-                    Console.WriteLine("Token signature is invalid");
-                Console.WriteLine("=== END AUTH FAILED ===");
+                Console.WriteLine($"JWT Authentication Failed: {context.Exception.Message}");
                 return Task.CompletedTask;
             },
             OnTokenValidated = context =>
             {
-                Console.WriteLine("=== JWT TOKEN VALIDATED SUCCESSFULLY ===");
-                Console.WriteLine($"User: {context.Principal.Identity.Name}");
-                Console.WriteLine($"Claims: {string.Join(", ", context.Principal.Claims.Select(c => c.Type))}");
-                Console.WriteLine("=== END TOKEN VALIDATED ===");
-                return Task.CompletedTask;
-            },
-            OnMessageReceived = context =>
-            {
-                Console.WriteLine($"=== TOKEN RECEIVED ===");
-                Console.WriteLine($"Token: {context.Token}");
-                Console.WriteLine($"=== END TOKEN RECEIVED ===");
+                Console.WriteLine($"JWT Token Validated for user: {context.Principal.Identity.Name}");
                 return Task.CompletedTask;
             }
         };
@@ -135,35 +109,75 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// ✅ FIXED Swagger Protection Middleware
 app.Use(async (context, next) =>
 {
     // Only protect Swagger UI routes
     if (context.Request.Path.StartsWithSegments("/swagger") ||
-        context.Request.Path.StartsWithSegments("/swagger-ui"))
+        context.Request.Path.StartsWithSegments("/swagger-ui") ||
+        context.Request.Path == "/" || // Redirect root to Swagger
+        context.Request.Path == "/index.html")
     {
-        string authHeader = context.Request.Headers["Authorization"];
-        if (authHeader != null && authHeader.StartsWith("Basic "))
+        // Skip auth for Swagger JSON files and CSS/JS assets
+        if (context.Request.Path.StartsWithSegments("/swagger/v1/swagger.json") ||
+            context.Request.Path.StartsWithSegments("/swagger-ui/") ||
+            context.Request.Path.Value.EndsWith(".css") ||
+            context.Request.Path.Value.EndsWith(".js") ||
+            context.Request.Path.Value.EndsWith(".png"))
         {
-            // Extract credentials
-            var encodedUsernamePassword = authHeader.Substring("Basic ".Length).Trim();
-            var decodedUsernamePassword = Encoding.UTF8.GetString(Convert.FromBase64String(encodedUsernamePassword));
-            var parts = decodedUsernamePassword.Split(':');
+            await next();
+            return;
+        }
 
-            // Get credentials from environment variables or use defaults
-            var expectedUsername = Environment.GetEnvironmentVariable("SWAGGER_USERNAME") ?? "admin";
-            var expectedPassword = Environment.GetEnvironmentVariable("SWAGGER_PASSWORD") ?? "2025Secure_API!#Sw@g3r";
+        string authHeader = context.Request.Headers["Authorization"];
 
-            if (parts.Length == 2 && parts[0] == expectedUsername && parts[1] == expectedPassword)
+        // Check if Basic Auth header is present and valid
+        if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Basic "))
+        {
+            try
             {
-                await next();
-                return;
+                var encodedUsernamePassword = authHeader.Substring("Basic ".Length).Trim();
+                var decodedUsernamePassword = Encoding.UTF8.GetString(Convert.FromBase64String(encodedUsernamePassword));
+                var parts = decodedUsernamePassword.Split(':', 2);
+
+                // Get credentials from environment variables or use defaults
+                var expectedUsername = Environment.GetEnvironmentVariable("SWAGGER_USERNAME") ?? "admin";
+                var expectedPassword = Environment.GetEnvironmentVariable("SWAGGER_PASSWORD") ?? "2025Secure_API!#Sw@g3r";
+
+                if (parts.Length == 2 && parts[0] == expectedUsername && parts[1] == expectedPassword)
+                {
+                    await next();
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Basic auth parsing error: {ex.Message}");
             }
         }
 
-        // Return 401 if not authenticated for Swagger
-        context.Response.Headers["WWW-Authenticate"] = "Basic realm=\"Hospital API Swagger UI\"";
+        // Return 401 with Basic Auth challenge
+        context.Response.Headers["WWW-Authenticate"] = "Basic realm=\"Hospital API Swagger UI\", charset=\"UTF-8\"";
         context.Response.StatusCode = 401;
-        await context.Response.WriteAsync("Unauthorized access to Swagger documentation");
+
+        // For HTML requests, return a simple unauthorized message
+        if (context.Request.Headers["Accept"].ToString().Contains("text/html"))
+        {
+            context.Response.ContentType = "text/html";
+            await context.Response.WriteAsync(@"
+                <html>
+                    <head><title>401 Unauthorized</title></head>
+                    <body>
+                        <h1>401 Unauthorized</h1>
+                        <p>Access to Swagger documentation requires authentication.</p>
+                        <p>Use credentials: admin / 2025Secure_API!#Sw@g3r</p>
+                    </body>
+                </html>");
+        }
+        else
+        {
+            await context.Response.WriteAsync("Unauthorized");
+        }
         return;
     }
 
@@ -172,16 +186,16 @@ app.Use(async (context, next) =>
 });
 
 // Configure the HTTP request pipeline
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hospital Management API v1");
-        c.RoutePrefix = "swagger";
-        c.DisplayRequestDuration();
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hospital Management API v1");
+    c.RoutePrefix = "swagger"; // Set Swagger UI at /swagger
+    c.DisplayRequestDuration();
+});
+
+// Redirect root to Swagger
+app.MapGet("/", () => Results.Redirect("/swagger"));
 
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
