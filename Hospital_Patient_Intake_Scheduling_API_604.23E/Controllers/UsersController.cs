@@ -20,7 +20,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
         }
 
         // GET: api/users
-        [HttpGet]
+        [HttpGet("GetAllUsers")]
         public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()
         {
             var users = await _context.Users
