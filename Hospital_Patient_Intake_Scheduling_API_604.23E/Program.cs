@@ -6,8 +6,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Hospital_Patient_Intake_Scheduling_API_604._23E.Data;
 using Hospital_Patient_Intake_Scheduling_API_604._23E.Services;
 using Hospital_Patient_Intake_Scheduling_API_604._23E.Interfaces;
+using Hospital_Patient_Intake_Scheduling_API_604._23E.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://*:{port}");
 
 // Add services to the container
 builder.Services.AddControllers();
@@ -52,8 +56,12 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Configure Entity Framework with SQL Server
+/*builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));*/
+
+var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(connectionString));
 
 // Configure JWT Authentication - FIXED VERSION
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -127,6 +135,42 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.Use(async (context, next) =>
+{
+    // Only protect Swagger UI routes
+    if (context.Request.Path.StartsWithSegments("/swagger") ||
+        context.Request.Path.StartsWithSegments("/swagger-ui"))
+    {
+        string authHeader = context.Request.Headers["Authorization"];
+        if (authHeader != null && authHeader.StartsWith("Basic "))
+        {
+            // Extract credentials
+            var encodedUsernamePassword = authHeader.Substring("Basic ".Length).Trim();
+            var decodedUsernamePassword = Encoding.UTF8.GetString(Convert.FromBase64String(encodedUsernamePassword));
+            var parts = decodedUsernamePassword.Split(':');
+
+            // Get credentials from environment variables or use defaults
+            var expectedUsername = Environment.GetEnvironmentVariable("SWAGGER_USERNAME") ?? "admin";
+            var expectedPassword = Environment.GetEnvironmentVariable("SWAGGER_PASSWORD") ?? "2025Secure_API!#Sw@g3r";
+
+            if (parts.Length == 2 && parts[0] == expectedUsername && parts[1] == expectedPassword)
+            {
+                await next();
+                return;
+            }
+        }
+
+        // Return 401 if not authenticated for Swagger
+        context.Response.Headers["WWW-Authenticate"] = "Basic realm=\"Hospital API Swagger UI\"";
+        context.Response.StatusCode = 401;
+        await context.Response.WriteAsync("Unauthorized access to Swagger documentation");
+        return;
+    }
+
+    // ✅ ALL other routes (your API endpoints) pass through normally
+    await next();
+});
+
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
@@ -135,27 +179,44 @@ if (app.Environment.IsDevelopment())
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hospital Management API v1");
         c.RoutePrefix = "swagger";
+        c.DisplayRequestDuration();
     });
 }
 
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
-app.UseAuthentication(); // MUST come before UseAuthorization
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
 // Initialize database
 using (var scope = app.Services.CreateScope())
 {
-    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    context.Database.EnsureCreated();
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ApplicationDbContext>();
 
-    // Debug: Check if users exist
-    var users = context.Users.ToList();
-    Console.WriteLine($"=== DATABASE USERS COUNT: {users.Count} ===");
-    foreach (var user in users)
+    try
     {
-        Console.WriteLine($"User: {user.Username}, Role: {user.Role}");
+        // Apply migrations
+        await context.Database.MigrateAsync();
+        Console.WriteLine("Database migrated successfully.");
+
+        // Seed data
+        await DataHelper.ManageDataAsync(scope.ServiceProvider);
+        Console.WriteLine("Data seeding completed.");
+
+        // Debug: Check if users exist
+        var users = context.Users.ToList();
+        Console.WriteLine($"=== DATABASE USERS COUNT: {users.Count} ===");
+        foreach (var user in users)
+        {
+            Console.WriteLine($"User: {user.Username}, Role: {user.Role}");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Database operation failed: {ex.Message}");
+        // Don't throw - let the app start even if migration fails
     }
 }
 
