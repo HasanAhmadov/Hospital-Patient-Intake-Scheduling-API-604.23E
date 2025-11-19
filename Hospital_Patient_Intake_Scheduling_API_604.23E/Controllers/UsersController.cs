@@ -9,7 +9,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin")] // Only Admin can access all endpoints in this controller
+    [Authorize]
     public class UsersController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -59,6 +59,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
 
         // POST: api/users
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<UserDto>> CreateUser(CreateUserDto createUserDto)
         {
             // Check if username already exists
@@ -95,6 +96,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
 
         // PUT: api/users/5
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateUser(int id, UpdateUserDto updateUserDto)
         {
             var user = await _context.Users.FindAsync(id);
@@ -138,6 +140,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
 
         // DELETE: api/users/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
