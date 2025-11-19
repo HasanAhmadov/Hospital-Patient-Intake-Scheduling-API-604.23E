@@ -111,25 +111,26 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
         // this method now returns the SCHEDULED slots, which helps users see what is unavailable.
         [HttpGet("availability")]
         public async Task<ActionResult<IEnumerable<TimeSlotDto>>> GetAvailability(
-            [FromQuery] int doctorId, [FromQuery] DateTime date)
+    [FromQuery] int doctorId, [FromQuery] DateTime date)
         {
-            bool statusCancelled = false;
-            var statusOfAppointment = await _context.Appointments
+            // Get all appointments for the doctor on the given date
+            var appointments = await _context.Appointments
                 .Where(a => a.DoctorId == doctorId && a.AppointmentDate.Date == date.Date)
-                .Select(a => a.Status)
                 .ToListAsync();
-            if (statusOfAppointment[0].ToString() == "Cancelled") statusCancelled = true;
-            // Logic implemented directly: Returns scheduled slots for the doctor on the given date
-            var scheduledSlots = await _context.Appointments
-                .Where(a => a.DoctorId == doctorId && a.AppointmentDate.Date == date.Date)
-                .Select(a => new TimeSlotDto // Assuming TimeSlotDto has StartTime and EndTime
-                {
-                    StartTime = a.StartTime,
-                    EndTime = a.EndTime,
-                    Date = a.AppointmentDate,
-                    IsAvailable = statusCancelled
-                })
-                .ToListAsync();
+
+            // Convert to TimeSlotDto with proper availability status
+            var scheduledSlots = appointments.Select(a => new TimeSlotDto
+            {
+                StartTime = a.StartTime,
+                EndTime = a.EndTime,
+                Date = a.AppointmentDate,
+                IsAvailable = a.Status == "Cancelled" // Only cancelled appointments are considered "available"
+            }).ToList();
+
+            if (scheduledSlots is null || scheduledSlots.Count == 0)
+            {
+                return NotFound("No appointments found for the specified doctor and date.");
+            }
 
             return Ok(scheduledSlots);
         }

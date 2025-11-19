@@ -80,19 +80,19 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
                 columns: new[] { "Id", "Discriminator", "PasswordHash", "Role", "Username" },
                 values: new object[,]
                 {
-                    { 1, "User", "$2a$11$k8NYn282Rgzb912lUFVBluNJX/X0lI4hckuZinj2NHjI4ZwKaDofK", "Admin", "admin" },
-                    { 2, "User", "$2a$11$EFZiqoa7OOiJhStpVUHU4OQ81ZHfGYfCMlCIcBMdqJ5gyZ7lDQbJW", "Receptionist", "receptionist" }
+                    { 1, "User", "$2a$11$TiIwTJWF9Ko44OG6fW3fSOHoDTPBlDP4UsUFOupTdc0twTxWrxifu", "Admin", "admin" },
+                    { 2, "User", "$2a$11$TTlniSi62L5z8LzMiPaqwOhbjdWouvA6kXQdgYlVB74tjUNWfyhaq", "Receptionist", "receptionist" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Discriminator", "Doctor_Email", "IsActive", "Doctor_Name", "PasswordHash", "Doctor_PhoneNumber", "Role", "Specialty", "Username" },
-                values: new object[] { 3, "Doctor", "hasan.ahmadov@xestexanam.az", true, "Dr. Hasan Ahmadov", "$2a$11$70MM3of9gJ2ZmfkWfP60TuQ23/UftvhvxPy4J1aZfQ5y5MtooBo9a", "+994777777777", "Doctor", "Cardiology", "hasan" });
+                values: new object[] { 3, "Doctor", "hasan.ahmadov@xestexanam.az", true, "Dr. Hasan Ahmadov", "$2a$11$RhmBBnejRUcFB2lQ6SEJau3xeMHiS./GeXlFg/yOA.LrK8oAbOSMG", "+994777777777", "Doctor", "Cardiology", "hasan" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Address", "Age", "CreatedAt", "Discriminator", "Email", "Name", "PasswordHash", "PhoneNumber", "Role", "Symptoms", "UpdatedAt", "Username" },
-                values: new object[] { 4, "Ahmadli", 19, new DateTime(2025, 11, 18, 12, 57, 18, 116, DateTimeKind.Utc).AddTicks(1952), "Patient", "sevinc@gmail.com", "Sevinc Abbasova", "$2a$11$KcYqC6Oj8mtcL6QixHtCfeor60n/8FAPrOrGC.i8OEwVZztXXzwWC", "+994555555555", "Patient", "Headache, nausea, dizziness", new DateTime(2025, 11, 18, 12, 57, 18, 116, DateTimeKind.Utc).AddTicks(1956), "sevinc" });
+                values: new object[] { 4, "Ahmadli", 19, new DateTime(2025, 11, 19, 15, 32, 0, 723, DateTimeKind.Utc).AddTicks(5164), "Patient", "sevinc@gmail.com", "Sevinc Abbasova", "$2a$11$TyJGXoD4tD41nXVBsGqMqeqm0B.NJcII4DwDtHymWayCBztXkGi.6", "+994555555555", "Patient", "Headache, nausea, dizziness", new DateTime(2025, 11, 19, 15, 32, 0, 723, DateTimeKind.Utc).AddTicks(5169), "sevinc" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_DoctorId",

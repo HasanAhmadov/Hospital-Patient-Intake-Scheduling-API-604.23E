@@ -110,14 +110,14 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "$2a$11$k8NYn282Rgzb912lUFVBluNJX/X0lI4hckuZinj2NHjI4ZwKaDofK",
+                            PasswordHash = "$2a$11$TiIwTJWF9Ko44OG6fW3fSOHoDTPBlDP4UsUFOupTdc0twTxWrxifu",
                             Role = "Admin",
                             Username = "admin"
                         },
                         new
                         {
                             Id = 2,
-                            PasswordHash = "$2a$11$EFZiqoa7OOiJhStpVUHU4OQ81ZHfGYfCMlCIcBMdqJ5gyZ7lDQbJW",
+                            PasswordHash = "$2a$11$TTlniSi62L5z8LzMiPaqwOhbjdWouvA6kXQdgYlVB74tjUNWfyhaq",
                             Role = "Receptionist",
                             Username = "receptionist"
                         });
@@ -168,7 +168,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
                         new
                         {
                             Id = 3,
-                            PasswordHash = "$2a$11$70MM3of9gJ2ZmfkWfP60TuQ23/UftvhvxPy4J1aZfQ5y5MtooBo9a",
+                            PasswordHash = "$2a$11$RhmBBnejRUcFB2lQ6SEJau3xeMHiS./GeXlFg/yOA.LrK8oAbOSMG",
                             Role = "Doctor",
                             Username = "hasan",
                             Email = "hasan.ahmadov@xestexanam.az",
@@ -223,17 +223,17 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Migrations
                         new
                         {
                             Id = 4,
-                            PasswordHash = "$2a$11$KcYqC6Oj8mtcL6QixHtCfeor60n/8FAPrOrGC.i8OEwVZztXXzwWC",
+                            PasswordHash = "$2a$11$TyJGXoD4tD41nXVBsGqMqeqm0B.NJcII4DwDtHymWayCBztXkGi.6",
                             Role = "Patient",
                             Username = "sevinc",
                             Address = "Ahmadli",
                             Age = 19,
-                            CreatedAt = new DateTime(2025, 11, 18, 12, 57, 18, 116, DateTimeKind.Utc).AddTicks(1952),
+                            CreatedAt = new DateTime(2025, 11, 19, 15, 32, 0, 723, DateTimeKind.Utc).AddTicks(5164),
                             Email = "sevinc@gmail.com",
                             Name = "Sevinc Abbasova",
                             PhoneNumber = "+994555555555",
                             Symptoms = "Headache, nausea, dizziness",
-                            UpdatedAt = new DateTime(2025, 11, 18, 12, 57, 18, 116, DateTimeKind.Utc).AddTicks(1956)
+                            UpdatedAt = new DateTime(2025, 11, 19, 15, 32, 0, 723, DateTimeKind.Utc).AddTicks(5169)
                         });
                 });
 
