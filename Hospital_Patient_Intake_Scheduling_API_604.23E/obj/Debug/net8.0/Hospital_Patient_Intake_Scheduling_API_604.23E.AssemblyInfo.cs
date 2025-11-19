@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hospital_Patient_Intake_Scheduling_API_604.23E")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdf44f2d402bb06e640e24ba9ef84885d1519f7b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+671d77ff9165c865228b04bd613c505bc4a57d40")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hospital_Patient_Intake_Scheduling_API_604.23E")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hospital_Patient_Intake_Scheduling_API_604.23E")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
