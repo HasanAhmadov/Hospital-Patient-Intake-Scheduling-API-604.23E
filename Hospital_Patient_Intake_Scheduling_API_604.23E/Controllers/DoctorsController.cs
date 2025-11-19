@@ -29,6 +29,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
                 .Select(d => new DoctorDto
                 {
                     Id = d.Id,
+                    UserName = d.Username,
                     Name = d.Name,
                     Specialty = d.Specialty,
                     PhoneNumber = d.PhoneNumber,
@@ -49,6 +50,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
                 .Select(d => new DoctorDto
                 {
                     Id = d.Id,
+                    UserName = d.Username,
                     Name = d.Name,
                     Specialty = d.Specialty,
                     PhoneNumber = d.PhoneNumber,
@@ -98,6 +100,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             var doctorDto = new DoctorDto
             {
                 Id = doctor.Id,
+                UserName = doctor.Username,
                 Name = doctor.Name,
                 Specialty = doctor.Specialty,
                 PhoneNumber = doctor.PhoneNumber,
@@ -156,6 +159,27 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        [HttpGet("search")]
+        public async Task<ActionResult<IEnumerable<PatientDto>>> SearchDoctors([FromQuery] string term)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return BadRequest("Search term is required");
+
+            var patients = await _context.Set<Doctor>()
+                .Where(d => d.Name.Contains(term) || d.PhoneNumber.Contains(term)) // Added phone number search
+                .Select(p => new DoctorDto
+                {
+                    Id = p.Id,
+                    UserName = p.Username,
+                    Name = p.Name,
+                    PhoneNumber = p.PhoneNumber,
+                    Email = p.Email
+                })
+                .ToListAsync();
+
+            return Ok(patients);
         }
     }
 }

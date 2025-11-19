@@ -28,6 +28,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
                 .Select(p => new PatientDto
                 {
                     Id = p.Id,
+                    UserName = p.Username,
                     Name = p.Name,
                     Age = p.Age,
                     Symptoms = p.Symptoms,
@@ -49,6 +50,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
                 .Select(p => new PatientDto
                 {
                     Id = p.Id,
+                    UserName = p.Username,
                     Name = p.Name,
                     Age = p.Age,
                     Symptoms = p.Symptoms,
@@ -75,6 +77,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
                 .Select(p => new PatientDto
                 {
                     Id = p.Id,
+                    UserName = p.Username,
                     Name = p.Name,
                     Age = p.Age,
                     Symptoms = p.Symptoms,
@@ -133,6 +136,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             var patientDto = new PatientDto
             {
                 Id = patient.Id,
+                UserName = patient.Username,
                 Name = patient.Name,
                 Age = patient.Age,
                 Symptoms = patient.Symptoms,
@@ -151,6 +155,7 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             var patient = await _context.Set<Patient>().FindAsync(id);
             if (patient == null) return NotFound();
 
+            patient.Username = patient.Username; // Username is immutable
             patient.Name = updatePatientDto.Name;
             patient.Age = updatePatientDto.Age;
             patient.Symptoms = updatePatientDto.Symptoms;

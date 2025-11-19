@@ -1088,6 +1088,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -1130,6 +1134,10 @@
           "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
           },
           "name": {
             "type": "string",
@@ -1200,6 +1208,10 @@
       "TimeSlotDto": {
         "type": "object",
         "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
           "startTime": {
             "$ref": "#/components/schemas/TimeSpan"
           },

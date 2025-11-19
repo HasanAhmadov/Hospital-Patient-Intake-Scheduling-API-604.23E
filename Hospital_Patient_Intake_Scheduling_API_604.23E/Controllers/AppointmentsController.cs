@@ -113,13 +113,21 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
         public async Task<ActionResult<IEnumerable<TimeSlotDto>>> GetAvailability(
             [FromQuery] int doctorId, [FromQuery] DateTime date)
         {
+            bool statusCancelled = false;
+            var statusOfAppointment = await _context.Appointments
+                .Where(a => a.DoctorId == doctorId && a.AppointmentDate.Date == date.Date)
+                .Select(a => a.Status)
+                .ToListAsync();
+            if (statusOfAppointment[0].ToString() == "Cancelled") statusCancelled = true;
             // Logic implemented directly: Returns scheduled slots for the doctor on the given date
             var scheduledSlots = await _context.Appointments
                 .Where(a => a.DoctorId == doctorId && a.AppointmentDate.Date == date.Date)
                 .Select(a => new TimeSlotDto // Assuming TimeSlotDto has StartTime and EndTime
                 {
                     StartTime = a.StartTime,
-                    EndTime = a.EndTime
+                    EndTime = a.EndTime,
+                    Date = a.AppointmentDate,
+                    IsAvailable = statusCancelled
                 })
                 .ToListAsync();
 
