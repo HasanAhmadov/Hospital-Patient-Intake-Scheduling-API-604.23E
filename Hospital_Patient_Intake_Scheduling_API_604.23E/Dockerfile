@@ -1,12 +1,9 @@
-# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
+USER app
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
-
 
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
@@ -27,4 +24,4 @@ RUN dotnet publish "./Hospital_Patient_Intake_Scheduling_API_604.23E.csproj" -c 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Hospital_Patient_Intake_Scheduling_API_604.23E.dll"]
+ENTRYPOINT ["dotnet", "Hospital_Patient_Intake_Scheduling_API_604.23E.dll", "--urls=http://0.0.0.0:8080"]
