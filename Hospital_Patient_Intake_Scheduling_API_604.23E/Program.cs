@@ -159,25 +159,6 @@ app.Use(async (context, next) =>
         // Return 401 with Basic Auth challenge
         context.Response.Headers["WWW-Authenticate"] = "Basic realm=\"Hospital API Swagger UI\", charset=\"UTF-8\"";
         context.Response.StatusCode = 401;
-
-        // For HTML requests, return a simple unauthorized message
-        if (context.Request.Headers["Accept"].ToString().Contains("text/html"))
-        {
-            context.Response.ContentType = "text/html";
-            await context.Response.WriteAsync(@"
-                <html>
-                    <head><title>401 Unauthorized</title></head>
-                    <body>
-                        <h1>401 Unauthorized</h1>
-                        <p>Access to Swagger documentation requires authentication.</p>
-                        <p>Use credentials: admin / 2025Secure_API!#Sw@g3r</p>
-                    </body>
-                </html>");
-        }
-        else
-        {
-            await context.Response.WriteAsync("Unauthorized");
-        }
         return;
     }
 

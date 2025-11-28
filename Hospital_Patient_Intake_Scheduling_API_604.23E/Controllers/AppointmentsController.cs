@@ -14,15 +14,12 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
     public class AppointmentsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        // Removed: private readonly IAppointmentService _appointmentService;
 
         public AppointmentsController(ApplicationDbContext context)
         {
             _context = context;
-            // Removed: _appointmentService = appointmentService;
         }
 
-        // GET: /api/appointments (Returns all appointments)
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppointmentDto>>> GetAppointments()
         {
@@ -48,7 +45,6 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
             return Ok(appointments);
         }
 
-        // GET: /api/appointments/{id} 
         [HttpGet("{id}")]
         public async Task<ActionResult<AppointmentDto>> GetAppointment(int id)
         {
@@ -118,7 +114,6 @@ namespace Hospital_Patient_Intake_Scheduling_API_604._23E.Controllers
                 .Where(a => a.DoctorId == doctorId && a.AppointmentDate.Date == date.Date)
                 .ToListAsync();
 
-            // Convert to TimeSlotDto with proper availability status
             var scheduledSlots = appointments.Select(a => new TimeSlotDto
             {
                 StartTime = a.StartTime,
